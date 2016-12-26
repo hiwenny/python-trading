@@ -28,10 +28,14 @@ def run_this():
     foo = create_empty_dataframe_index_dates()
     for sym in ['AAPL', 'IBM', 'SPY']:
         foo = add_data(foo, "../data", sym)
-    # by col
+    # by row
     #print foo.ix['2010-01-01' : '2010-01-31']
     
-    # by col and row
+    # by col
+    #print foo['GOOG']
+    #print foo[['IBM', 'GOOG']]
+    
+    # by row and col
     print foo.ix['2010-01-01':'2010-01-31', ['SPY', 'IBM']]
     
     
