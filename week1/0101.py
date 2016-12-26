@@ -34,14 +34,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def plot_graph():
-    df = pd.read_csv("data/AAPL.csv")
+    df = pd.read_csv("../data/AAPL.csv")
     print df['High']
     df['High'].plot()
     plt.show() # the code above does not actually show the plot though it's there
     
 # to plot two 
 def plot_two_graphs():
-    df = pd.read_csv("data/AAPL.csv")
+    df = pd.read_csv("../data/AAPL.csv")
     df[['Close', 'Adj Close']].plot()
     plt.show() # the code above does not actually show the plot though it's there
     
