@@ -8,7 +8,7 @@ import pandas as pd
 
 def create_empty_dataframe_index_dates():
     start_date = '2010-01-22'
-    end_date = '2010-01-26'
+    end_date = '2010-02-26'
     dates = pd.date_range(start_date, end_date)
     return pd.DataFrame(index = dates)
     
@@ -28,8 +28,11 @@ def run_this():
     foo = create_empty_dataframe_index_dates()
     for sym in ['AAPL', 'IBM', 'SPY']:
         foo = add_data(foo, "../data", sym)
-        
-    print foo
+    # by col
+    #print foo.ix['2010-01-01' : '2010-01-31']
+    
+    # by col and row
+    print foo.ix['2010-01-01':'2010-01-31', ['SPY', 'IBM']]
     
     
 
