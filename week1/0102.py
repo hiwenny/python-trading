@@ -3,7 +3,7 @@ READING DATA FROM CERTAIN RANGES ONLY
 READING DATA FROM MULTIPLE FILES AND AGGREGATE
 BUILDING, JOINING DATAFRAMES
 """
-
+import os
 import pandas as pd
 
 def create_empty_dataframe_index_dates():
@@ -12,8 +12,12 @@ def create_empty_dataframe_index_dates():
     dates = pd.date_range(start_date, end_date)
     return pd.DataFrame(index = dates)
     
-def add_data(dataframe, symbol):
-    df = pd.read_csv("../data/{}.csv".format(symbol), index_col="Date", 
+def create_pathname(base, symbol):
+    return os.path.join(base, "{}.csv".format(symbol))
+    
+def add_data(dataframe, base, symbol):
+    pathname = create_pathname(base, symbol)
+    df = pd.read_csv(pathname, index_col="Date", 
                      parse_dates=True, usecols=['Date', 'Adj Close'], 
                      na_values=['nan'])
     df = df.rename(columns = {'Adj Close' : symbol})
@@ -22,9 +26,8 @@ def add_data(dataframe, symbol):
     
 def run_this():
     foo = create_empty_dataframe_index_dates()
-#    foo = add_data(foo, "../data/SPY.csv")
     for sym in ['AAPL', 'IBM', 'SPY']:
-        foo = add_data(foo, sym)
+        foo = add_data(foo, "../data", sym)
         
     print foo
     
