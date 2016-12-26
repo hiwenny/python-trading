@@ -12,13 +12,26 @@ def create_empty_dataframe_index_dates():
     dates = pd.date_range(start_date, end_date)
     return pd.DataFrame(index = dates)
     
-def add_data(dataframe, filepath):
-    df = pd.read_csv(filepath)
-    return dataframe.join(df)
+def add_data(dataframe, symbol):
+    df = pd.read_csv("../data/{}.csv".format(symbol), index_col="Date", 
+                     parse_dates=True, usecols=['Date', 'Adj Close'], 
+                     na_values=['nan'])
+    df = df.rename(columns = {'Adj Close' : symbol})
+#    return dataframe.join(df).dropna()
+    return dataframe.join(df, how='inner')
     
 def run_this():
     foo = create_empty_dataframe_index_dates()
-    add_data(foo, "../data/AAPL.csv")
+#    foo = add_data(foo, "../data/SPY.csv")
+    for sym in ['AAPL', 'IBM', 'SPY']:
+        foo = add_data(foo, sym)
+        
     print foo
     
-run_this()
+    
+
+"""
+Scope checking before running
+"""
+if __name__ == "__main__":
+    run_this()
