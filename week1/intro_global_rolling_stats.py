@@ -26,6 +26,14 @@ def get_rolling_std(dataframe, nwindow=20):
 def get_bollinger_bands(rollingmean, rollingstd):
     return [rollingmean + 2*rollingstd, rollingmean - 2*rollingstd]
 
+# used to compare between different stocks
+def get_daily_returns(data):
+    dr = data.copy()
+    dr[1:] = (dr[1:] / dr[:-1].values - 1) # .values to force -1 shift of array, otherwise will default to per-element matching operation
+    #then we sub the beginning and the end with 0s
+    dr.ix[0, :] = 0
+    return dr
+
 def run_this():
     dates = pd.date_range('2012-01-01', '2012-12-31')
     symbols = 'SPY'
@@ -45,6 +53,13 @@ def run_this():
     ax.set_xlabel("Date")
     ax.set_ylabel("Price")
     ax.legend(loc='upper left')
+    plt.show()
+
+    bx = df['SPY'].plot(title="SPY daily returns", label='SPY')
+    daily_SPY = get_daily_returns(df)
+    daily_SPY.plot(label='Daily returns', ax=bx)
+    bx.set_xlabel("Date")
+    bx.set_ylabel("Price")
     plt.show()
 
 if __name__ == "__main__":
