@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 def print_array():
     print np.array([(2, 3, 4), (5, 6, 7)])
@@ -34,8 +35,24 @@ def make_array():
     print "Sum of each row: ", a.sum(axis=1)
     print "Sum of each col: ", a.sum(axis=0)
     print "Min, mean, max etc can also be used per-row or col e.g. ", a.mean(axis=1)
+
+def get_max_index(a):
+    """Return the index of the maximum value in given 1D array."""
+    return a.argmax()
+
+def test_run():
+    a = np.array([9, 6, 2, 3, 12, 14, 7, 10], dtype=np.int32)  # 32-bit integer array
+    print "Array:", a
+    # Find the maximum and its index in array
+    print "Maximum value:", a.max()
+    print "Index of max.:", get_max_index(a)
+
 if __name__ == "__main__":
+    t1 = time.time()
     # print_array()
     # print_dist_array()
     # print_array_shape()
-    make_array()
+    # make_array()
+    test_run()
+    t2 = time.time()
+    print t2-t1
