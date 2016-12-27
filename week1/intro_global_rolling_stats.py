@@ -17,6 +17,14 @@ def get_data(symbol, dates):
     rf = rf.rename(columns={'Adj Close': symbol})
     return df.join(rf, how='inner')
 
+def get_rolling_mean(dataframe, nwindow=20):
+    return pd.rolling_mean(dataframe, window=nwindow)
+
+def get_rolling_std(dataframe, nwindow=20):
+    return pd.rolling_std(dataframe, window=nwindow)
+
+def get_bollinger_bands(rollingmean, rollingstd):
+    return [rollingmean + 2*rollingstd, rollingmean - 2*rollingstd]
 
 def run_this():
     dates = pd.date_range('2012-01-01', '2012-12-31')
@@ -25,8 +33,14 @@ def run_this():
 
     ax = df['SPY'].plot(title="SPY rolling mean", label='SPY')
 
-    rm_SPY = pd.rolling_mean(df['SPY'], window=20)
+    rm_SPY = get_rolling_mean(df['SPY'], 20)
     rm_SPY.plot(label='Rolling mean', ax=ax)
+
+    std_SPY = get_rolling_std(df['SPY'], 20)
+
+    [upper_band, lower_band] = get_bollinger_bands(rm_SPY, std_SPY)
+    upper_band.plot(label='upper band', ax=ax)
+    lower_band.plot(label='lower band', ax=ax)
 
     ax.set_xlabel("Date")
     ax.set_ylabel("Price")
