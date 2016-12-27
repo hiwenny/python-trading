@@ -34,6 +34,9 @@ def get_daily_returns(data):
     dr.ix[0, :] = 0
     return dr
 
+def get_cumulative_returns(data):
+    return (data[-1] / data[0]) - 1
+
 def run_this():
     dates = pd.date_range('2012-01-01', '2012-12-31')
     symbols = 'SPY'
@@ -61,6 +64,9 @@ def run_this():
     bx.set_xlabel("Date")
     bx.set_ylabel("Price")
     plt.show()
+    cumulative_returns = get_cumulative_returns(df['SPY'])
+    print(cumulative_returns)
+
 
 if __name__ == "__main__":
     run_this()
