@@ -27,9 +27,9 @@ Created on Thu Dec 15 07:34:04 2016
 #        
 #test_run()
 
-"""
-PLOTTING DATA
-"""
+# """
+# PLOTTING DATA
+# """
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -38,26 +38,26 @@ def plot_graph():
     print df['High']
     df['High'].plot()
     plt.show() # the code above does not actually show the plot though it's there
-    
-# to plot two 
+
+# to plot two
 def plot_two_graphs():
     df = pd.read_csv("../data/AAPL.csv")
     df[['Close', 'Adj Close']].plot()
     plt.show() # the code above does not actually show the plot though it's there
-    
+
 plot_two_graphs()
 
 """
 CSV IMPORTER BELOW
 """
-#import pandas as pd
-#import datetime
-#from pandas_datareader import data
+# import pandas as pd
+# import datetime
+# from pandas_datareader import data
 #
-#tickers = ['AAPL', 'SPY' , 'IBM']
+# tickers = ['AAPL', 'SPY' , 'IBM']
 #
-#for ticker in tickers:
+# for ticker in tickers:
 #    end_date = datetime.datetime.now()
 #    start_date = end_date - datetime.timedelta(days=365*10.0)
 #    df = data.get_data_yahoo(ticker, start = start_date, end = end_date, interval='d')
-#    df.to_csv("./data/{}.csv".format(ticker))
+#    df.to_csv("../data/{}.csv".format(ticker))
