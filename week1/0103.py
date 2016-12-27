@@ -47,12 +47,28 @@ def test_run():
     print "Maximum value:", a.max()
     print "Index of max.:", get_max_index(a)
 
+def indexing():
+    a = np.random.rand(5)
+    indices = np.array([1,1,2,3])
+    print a[indices]
+
+def indexing_boolean():
+    a = np.array([(5,0,8,6,3,5,6), (3,6,4,3,2,2,5)], dtype=np.int8)
+    print a[a<a.mean()]
+    # int/int is int. int/float vice-versa is float.
+    print a/2.0 # result is a new array, original is retained
+
+    b = np.array([(1,2,2,4,7,9,0), (0,7,4,1,4,7,9)])
+    print "a+b\n", a+b
+    print "a*b\n", a*b
+
 if __name__ == "__main__":
     t1 = time.time()
     # print_array()
     # print_dist_array()
     # print_array_shape()
     # make_array()
-    test_run()
+    # test_run()
+    indexing_boolean()
     t2 = time.time()
     print t2-t1
