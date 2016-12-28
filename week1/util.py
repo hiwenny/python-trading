@@ -30,7 +30,7 @@ def get_data(symbols, dates):
         df_final = df_final.join(df_temp)
         if symbol == "SPY":  # drop dates SPY did not trade
             df_final = df_final.dropna(subset=["SPY"])
-    return df_final
+    return df_final.dropna()
 
 def plot_data(df_data, title, ylabel):
     """Plot stock data with appropriate axis labels."""
