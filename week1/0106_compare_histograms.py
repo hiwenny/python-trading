@@ -17,7 +17,7 @@ def compute_daily_returns(df):
 def run_this():
     # Reading chart data
     dates = pd.date_range('2009-01-01', '2012-12-31')
-    symbols = ['SPY']
+    symbols = ['SPY', 'XOM']
     df = get_data(symbols, dates)
     # plot_data(df, title="Stock Data", ylabel="Price")
 
@@ -26,15 +26,16 @@ def run_this():
     # plot_data(daily_returns, title="Daily Returns", ylabel="Daily returns")
 
     #Plotting hist
-    # daily_returns.hist()
-    daily_returns.hist(bins=20)
+    daily_returns['SPY'].hist(bins=20, label='SPY')
+    daily_returns['XOM'].hist(bins=20, label='XOM')
+    plt.legend(loc='upper right')
 
     # Global
-    mean = daily_returns['SPY'].mean()
-    std = daily_returns['SPY'].std()
-    plt.axvline(mean, color='w', linestyle='dashed', linewidth=2)
-    plt.axvline(std, color='r', linestyle='dashed', linewidth=2)
-    plt.axvline(-std, color='r', linestyle='dashed', linewidth=2)
+    # mean = daily_returns.mean()
+    # std = daily_returns.std()
+    # plt.axvline(mean, color='w', linestyle='dashed', linewidth=2)
+    # plt.axvline(std, color='r', linestyle='dashed', linewidth=2)
+    # plt.axvline(-std, color='r', linestyle='dashed', linewidth=2)
 
     plt.show()
 
