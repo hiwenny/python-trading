@@ -34,4 +34,32 @@ MAIN 4 THINGS FOR PORTFOLIO ASSESSMENT
 3. Risk (stddev)
 4. Sharpe ratio
 Now build it!
+
+PART 2: PORTFOLIO OPTIMIZATION
+Combining the first part of the assignment with the optimization.
+Do it!
+
 """
+import matplotlib.pyplot as plt
+import pandas as pd
+from util import get_data, compute_daily_returns, plot_data
+
+def run_this():
+    dates = pd.date_range('2009-01-01', '2012-12-31')
+    df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
+
+    # the starting total asset
+    start_value = 100000
+
+    normed = df / df.ix[0]
+    allocs = [0.3, 0.4, 0.1, 0.2]
+    alloced = normed * allocs
+    position_values = alloced * start_value
+    portfolio_values = position_values.sum(axis=1)
+    print(portfolio_values)
+
+    # plt.plot(df)
+    # plt.show()
+
+if __name__ == "__main__":
+    run_this()

@@ -38,3 +38,9 @@ def plot_data(df_data, title, ylabel):
     ax.set_xlabel("Date")
     ax.set_ylabel(ylabel)
     plt.show()
+
+def compute_daily_returns(df):
+    dr = df.copy()
+    dr[1:] = (df[1:] / df[:-1].values) - 1
+    dr.ix[0, :] = 0
+    return dr
