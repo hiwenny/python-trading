@@ -42,7 +42,7 @@ Do it!
 """
 import matplotlib.pyplot as plt
 import pandas as pd
-from util import get_data, compute_daily_returns, plot_data
+from util import get_data, compute_daily_returns, get_cumulative_returns
 
 def generate_portfolio(dataframe, start_value):
     normed = dataframe / dataframe.ix[0]
@@ -52,10 +52,13 @@ def generate_portfolio(dataframe, start_value):
     portfolio_values = position_values.sum(axis=1)
     return portfolio_values
 
+def generate_portfolio_stats(portfolio_df):
+    daily_portfolio_returns = compute_daily_returns(portfolio_df)
+    cumulative_portfolio_returns = get_cumulative_returns(portfolio_df)
+    return [daily_portfolio_returns, cumulative_portfolio_returns]
+    # is there a better way to do this?
 
 if __name__ == "__main__":
     dates = pd.date_range('2009-01-01', '2012-12-31')
     df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
     pf_value = generate_portfolio(df, 100000)
-    daily_portfolio_returns = compute_daily_returns(pf_value)
-    print (daily_portfolio_returns)
