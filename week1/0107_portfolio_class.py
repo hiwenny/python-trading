@@ -5,9 +5,7 @@ Based on assignment as described in 0107_portfolio_assnment
 The idea is to only need to feed in a raw dataframe and get processed portfolio dataframe out,
 along with other calc methods associated.
 """
-import matplotlib.pyplot as plt
 import pandas as pd
-import math
 from util import get_data, compute_daily_returns, get_cumulative_returns
 
 class Portfolio(object):
