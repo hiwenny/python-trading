@@ -45,3 +45,6 @@ def compute_daily_returns(df):
     # dr.ix[0] = 0
     dr = dr[1:]
     return dr
+
+def get_cumulative_returns(df):
+    return (df[-1] / df[0]) - 1
