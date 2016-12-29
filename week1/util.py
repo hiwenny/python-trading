@@ -42,5 +42,6 @@ def plot_data(df_data, title, ylabel):
 def compute_daily_returns(df):
     dr = df.copy()
     dr[1:] = (df[1:] / df[:-1].values) - 1
-    dr.ix[0, :] = 0
+    # dr.ix[0] = 0
+    dr = dr[1:]
     return dr

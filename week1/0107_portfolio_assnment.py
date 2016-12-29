@@ -44,22 +44,18 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from util import get_data, compute_daily_returns, plot_data
 
-def run_this():
-    dates = pd.date_range('2009-01-01', '2012-12-31')
-    df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
-
-    # the starting total asset
-    start_value = 100000
-
-    normed = df / df.ix[0]
+def generate_portfolio(dataframe, start_value):
+    normed = dataframe / dataframe.ix[0]
     allocs = [0.3, 0.4, 0.1, 0.2]
     alloced = normed * allocs
     position_values = alloced * start_value
     portfolio_values = position_values.sum(axis=1)
-    print(portfolio_values)
+    return portfolio_values
 
-    # plt.plot(df)
-    # plt.show()
 
 if __name__ == "__main__":
-    run_this()
+    dates = pd.date_range('2009-01-01', '2012-12-31')
+    df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
+    pf_value = generate_portfolio(df, 100000)
+    daily_portfolio_returns = compute_daily_returns(pf_value)
+    print (daily_portfolio_returns)
