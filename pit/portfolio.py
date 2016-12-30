@@ -66,6 +66,10 @@ class Portfolio(object):
 
         return sharpe_annual
 
+    # def get_CAPM_stock(self):
+        # CAPM = Capital Asset Pricing Model
+        # stock_return = beta * market_return + alpha
+
 if __name__ == "__main__":
     dates = pd.date_range('2009-01-01', '2012-12-31')
     df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
