@@ -6,7 +6,7 @@ The idea is to only need to feed in a raw dataframe and get processed portfolio 
 along with other calc methods associated.
 """
 import pandas as pd
-from util import get_data, compute_daily_returns, get_cumulative_returns
+from util import get_data
 
 class Portfolio(object):
     def __init__(self, raw_dataframe, starting_capital, allocation):
@@ -70,8 +70,10 @@ if __name__ == "__main__":
     dates = pd.date_range('2009-01-01', '2012-12-31')
     df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
 
-    a = Portfolio(df, 100000, [0.3, 0.4, 0.1, 0.2])
+    a = Portfolio(df, 100000, [0.25, 0.25, 0.25, 0.25])
     print(a.get_sharpe_ratio(expected_risk_free_rate=0.02))
+
+
 
     """
     # so this is not private
