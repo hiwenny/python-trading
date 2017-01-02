@@ -45,3 +45,23 @@ General guide is mkt cap >= book value, since any lower and scrap value is highe
 
 CAPM
 Capital Asset Pricing Model
+sum |stock| = 1.0
+The | | is to neutralize the positions. + for long, - for short.
+Maximising port, then, involves calc. for the optimum amount of shares % in port.
+
+Return = Beta * MktMov-RFR + Alpha
+ri(t) = B * rm(t)-rf(t) + L
+Beta is modifier: how reactive the stock is to market movement.
+    for a stock with Beta = 2, movement is 2 x market.
+Alpha is the other factor. This is calculated from information and is somehow a certainty, a number
+    while market movement is large uncertainty.
+This method of valuation is different, almost opposite of value investing. But this is in line with
+    the application: short term, fundamental, calculations - while value investing is more long-term, more uncertainties
+    at least from the POV of calculable components.
+Seems to be taking advantage of inefficiencies in the mkt? The time it takes for market value to adjust to true in-value.
+
+APT
+Extension of CAPM for the overall stock.
+expected return = r(f) + b(1) x rp(1) + b(2) x rp(2) + ... + b(n) x rp(n)
+Assuming we're very, very confident we can predict alpha, then it's a matter of zero-sum the market-based risk so return = RFR + alpha.
+Alpha, then, is a measure of how well we've beaten the mkt (of be beaten, in that case).
