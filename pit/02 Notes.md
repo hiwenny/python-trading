@@ -68,3 +68,16 @@ Alpha, then, is a measure of how well we've beaten the mkt (of be beaten, in tha
 Also remember that sum(W) = 1.0
 
 02-06
+Popular indicators:
+    - Momentum = price[t] / price[t-n] - 1 where n = days. Ranges from -0.5 to +0.5
+    - SMA = price[t] / price[t-n:t].mean() - 1. Range -0.5 to +0.5
+        combine with momentum so at crossing - might be that momentum is strong enough to continue trend. Too far, and it might snap back - see BB below.
+    - BB = (price[t] - SMA[t]) / (2 * std[t]). Range -1.0 to +1.0
+        basically stddev x 2 limit on upper and bottom. Cross and it's too far gone, expected to snap back to SMA.
+Note that it doesn't always snap back! If momentum is too strong, you is screwed. Also momentum can come out of the blue, not always in the opp. dir first.
+Look for confirmation
+Wait for conditions to be met
+Not trading is always an option!
+
+Normalize these. Actually, normalize every factor introduced into calc always.
+(dock to -1 to +1)
