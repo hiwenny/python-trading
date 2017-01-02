@@ -65,6 +65,6 @@ Extension of CAPM for the overall stock.
 expected return = r(f) + W1 (b(1) x rp(1)) + W2 (b(2) x rp(2)) + ... + Wn (b(n) x rp(n))
 Assuming we're very, very confident we can predict alpha, then it's a matter of zero-sum the market-based risk so return = RFR + alpha.
 Alpha, then, is a measure of how well we've beaten the mkt (of be beaten, in that case).
-
+Also remember that sum(W) = 1.0
 
 02-06
