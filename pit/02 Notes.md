@@ -62,6 +62,9 @@ Seems to be taking advantage of inefficiencies in the mkt? The time it takes for
 
 APT
 Extension of CAPM for the overall stock.
-expected return = r(f) + b(1) x rp(1) + b(2) x rp(2) + ... + b(n) x rp(n)
+expected return = r(f) + W1 (b(1) x rp(1)) + W2 (b(2) x rp(2)) + ... + Wn (b(n) x rp(n))
 Assuming we're very, very confident we can predict alpha, then it's a matter of zero-sum the market-based risk so return = RFR + alpha.
 Alpha, then, is a measure of how well we've beaten the mkt (of be beaten, in that case).
+
+
+02-06
