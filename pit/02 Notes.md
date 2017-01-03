@@ -101,7 +101,9 @@ on maturity, price reverts to company-value.
 Adjustments meaning taking the most recent adjusted close value and getting all other values to the same measure.
     So in the case of stock split, the price-before-split is adjusted to after-split,
     While for div payout remove effects by div.
-
+Lastly, there is such a thing called Survivor Bias. In case of bubble burst of '08 the top stocks performed exceedingly well,
+    but also note that the non-survivors plummeted, and these made the market condition average.
+    Consider getting survivor bias data (although behind paywall likely) for clean source and more accurate mkt universe.
 ================================
 
 02-08
