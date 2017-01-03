@@ -81,3 +81,27 @@ Not trading is always an option!
 
 Normalize these. Actually, normalize every factor introduced into calc always.
 (dock to -1 to +1)
+
+================================
+
+02-07
+
+Smallest amount is a tick.
+Aggregation of data is per-timeframe basis, out:
+- open
+- high
+- low
+- close
+- volume
+Things to note: adjustments
+- stock splits: price slash eg 50 -> 100 stocks = price -> price/2
+this is done to avoid too high price per stocks which reduces liquidity.
+- dividends payout: price+div before payout -> price
+on maturity, price reverts to company-value.
+Adjustments meaning taking the most recent adjusted close value and getting all other values to the same measure.
+    So in the case of stock split, the price-before-split is adjusted to after-split,
+    While for div payout remove effects by div.
+
+================================
+
+07-08
