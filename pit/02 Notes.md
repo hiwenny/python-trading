@@ -189,5 +189,5 @@ Outputs:
     asset weights for min risk, closest to target return
 
 There's also The Efficient Frontier.
-
+And that a tangent from 0,0 to frontier is max sharp ratio portfolio for all those assets.
 ================================
