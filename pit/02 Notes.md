@@ -104,6 +104,90 @@ Adjustments meaning taking the most recent adjusted close value and getting all 
 Lastly, there is such a thing called Survivor Bias. In case of bubble burst of '08 the top stocks performed exceedingly well,
     but also note that the non-survivors plummeted, and these made the market condition average.
     Consider getting survivor bias data (although behind paywall likely) for clean source and more accurate mkt universe.
+
 ================================
 
 02-08
+
+Efficient Market Hypothesis
+- a truly efficient market renders your tricks useless
+                Weak    Semi-strong     Strong
+Technical        x           x             x
+Fundamental                  x             x
+Insider                                    x
+
+================================
+
+02-09
+
+Expected return is chance profit total + chance loss total
+e.g.
+    0.51*1000 + 0.49*-1000 = 20
+    0.51*1*1000 + 0.49*1*1000 = 20
+both has the same expected return, but risk-wise, comparison diversified vs. unibasket for lose-all:
+    0.49^1
+    0.49^1000
+another way is to calc stddev
+    stddev(1000, -1000, 0, 0, ...0) = 31.62
+    stddev(1, -1, 1, -1....-1) = 1
+
+How this relates to Sharpe ratio:
+reward/risk
+20 / 31.62 = 0.63
+20 / 1 = 20
+20 = 0.63 * sqrt(1000)
+Illuminati confirmed - nah, just Sharpe.
+SRmulti = SRsingle * sqrt(bets)
+performance = skill * sqrt(breadth)
+Dunununun
+
+about Information Ratio
+IR = mean alpha / stddev alpha
+Sharpe of excess return
+performance = market + skill
+rp = beta * marketp + alpha
+
+about Information Coefficient
+correlation of forecasted results
+
+Br is breadth - # of trading opp. Open posns included, not just closed trades.
+
+IR = IC * sqrt(BR)
+
+================================
+
+02-09
+
+Risk
+
+here calculated as stddev.
+"If yo' pips ain't movin, then they fine, fine, fine, baby."
+Not so much if there's a whole lot of range of movement.
+
+First make return vs risk scatterplot.
+To aggregate your multiple stocks as portfolio rvr dot, use weighted avg.
+By this if we want safer, it means bigger allocation on safes - vice versa on the flip side.
+
+But!!!!
+This doesn't take into account covariance.
+Stocks can move together, not related, or AGAINST eachother.
+...meaning we can lower volatility by counter-movement.
+
+General rule is anti-correlation for short term, positive correlation for long term.
+
+MVO
+Mean Variance Optimization
+What is the perfect blend?
+
+Inputs:
+    expected return
+    volatility
+    covariance
+    target return
+
+Outputs:
+    asset weights for min risk, closest to target return
+
+There's also The Efficient Frontier.
+
+================================
