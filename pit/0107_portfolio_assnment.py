@@ -62,3 +62,4 @@ if __name__ == "__main__":
     dates = pd.date_range('2009-01-01', '2012-12-31')
     df = get_data(['SPY', 'XOM', 'AAPL', 'GOOG'], dates)
     pf_value = generate_portfolio(df, 100000)
+    print(pf_value)

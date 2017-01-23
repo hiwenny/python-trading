@@ -9,7 +9,7 @@ Minimzer to optimize portfolio
 Problem: what is the optimum weighting of shares for max return?
 Cumulative return: past performance to indicate future. Easiest, least dependable.
 Minimizer:
-1. profide a function to minimize f(x):
+1. provide a function to minimize f(x):
     biggest sharpe ratio:
     f(x) = -sharpe ratio
     # of dimensions equal to types of stocks in port
